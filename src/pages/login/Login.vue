@@ -1,17 +1,11 @@
 <template>
-  <a>{{ msg }}</a>
+  <a>{{ count }}</a>
 </template>
 
 <script lang="ts">
 import { ref, defineComponent } from 'vue'
 export default defineComponent({
-  name: 'HelloWorld',
-  props: {
-    msg: {
-      type: String,
-      required: true,
-    },
-  },
+  name: 'LoginPage',
   setup: () => {
     const count = ref(0)
     return { count }
