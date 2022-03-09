@@ -15,7 +15,6 @@ export default defineComponent({
       proxy.$i18n.locale = type
     }
     const { t } = useI18n()
-    console.log(t('message.pagesDes'))
     return { change }
   },
 })
