@@ -6,15 +6,13 @@
 
 <script lang="ts">
 import { defineComponent, getCurrentInstance } from 'vue'
-import { useI18n } from 'vue-i18n' //要在js中使用国际化
 export default defineComponent({
   name: 'LoginPage',
   setup: () => {
-    const { proxy } = getCurrentInstance()
+    const { proxy } = getCurrentInstance() || {}
     function change(type: string) {
-      proxy.$i18n.locale = type
+      proxy!.$i18n.locale = type
     }
-    const { t } = useI18n()
     return { change }
   },
 })
