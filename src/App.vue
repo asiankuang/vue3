@@ -1,6 +1,6 @@
 <template>
   <p>
-    <router-link to="/">Go to Home</router-link>
+    <router-link to="/">{{ $t(`message.Home`) }}</router-link>
   </p>
   <!-- 路由匹配到的组件将渲染在这里 -->
   <router-view></router-view>
@@ -11,7 +11,9 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'App',
-  components: {},
+  data() {
+    return {}
+  },
 })
 </script>
 
