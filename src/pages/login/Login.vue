@@ -12,15 +12,9 @@ import { useI18n } from 'vue-i18n'
 const Kyz = {
   template: `
     <div>
-      <p>Component1 locale messages: {{ $t("message.hello") }}</p>
+      <p>Component1 locale messages</p>
     </div>
   `,
-  i18n: {
-    messages: {
-      en: { message: { hello: 'hello component1' } },
-      zh: { message: { hello: 'こんにちは、component1' } },
-    },
-  },
 }
 export default defineComponent({
   name: 'LoginPage',
