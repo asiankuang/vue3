@@ -1,7 +1,4 @@
 <template>
-  <p>
-    <router-link to="/">{{ $t(`message.Home`) }}</router-link>
-  </p>
   <!-- 路由匹配到的组件将渲染在这里 -->
   <router-view></router-view>
 </template>
@@ -17,13 +14,4 @@ export default defineComponent({
 })
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style scoped lang="scss"></style>

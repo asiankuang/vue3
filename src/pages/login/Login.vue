@@ -1,43 +1,33 @@
 <template>
-  <h1>{{ t(`message.Home`) }}</h1>
-  <div @click="change('zh')">中文</div>
-  <div @click="change('en')">English</div>
-  <kyz></kyz>
+  <div class="login-box">
+    <div class="login-content">234</div>
+  </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, getCurrentInstance } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { defineComponent } from 'vue'
 
-const Kyz = {
-  template: `
-    <div>
-      <p>Component1 locale messages</p>
-    </div>
-  `,
-}
 export default defineComponent({
   name: 'LoginPage',
-  components: { kyz: Kyz },
   setup: () => {
-    const { proxy } = getCurrentInstance() || {}
-    function change(type: string) {
-      proxy!.$i18n.locale = type
-    }
-    const { t } = useI18n({
-      fallbackLocale: 'zh',
-      messages: {
-        en: { message: { Home: 'hello component1' } },
-        zh: { message: { Home: 'こんにちは、component1' } },
-      },
-    })
-    return { change, t }
+    return {}
   },
 })
 </script>
 
 <style scoped lang="scss">
-a {
-  color: $test-color;
+.login-box {
+  width: 100wh;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .login-content {
+    width: 380px;
+    height: 400px;
+    background: rgba(13, 10, 43, 0.7);
+    box-shadow: 0 4px 20px 0 rgb(0 0 0 / 5%);
+    padding: 32px 36px;
+  }
 }
 </style>
