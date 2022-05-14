@@ -53,8 +53,7 @@
       </div>
     </div>
     <div>
-      <p style="margin-left: 10px">default</p>
-      <el-select v-model="langCode" multiple placeholder="Select" style="width: 240px">
+      <el-select v-model="langCode" placeholder="Select" style="width: 240px">
         <el-option
           v-for="item in langData"
           :key="item.value"
@@ -68,6 +67,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, reactive } from 'vue'
+// import { useClickChange } from '@/asserts/vueuse/index'
 type Item = {
   value?: string
   label?: string
@@ -76,6 +76,11 @@ type LangData = Item[]
 export default defineComponent({
   name: 'LoginPage',
   setup: () => {
+    // const {
+    //   handleFalse: handleSignUp,
+    //   handleTrue: handleSignIn,
+    //   bool: isSignIn,
+    // } = useClickChange(true)
     const isSignIn = ref<boolean>(true)
     const langCode = ref<string>('zh')
     const langData = reactive<LangData>([])
@@ -85,6 +90,7 @@ export default defineComponent({
     const handleSignIn = () => {
       isSignIn.value = true
     }
+
     return {
       handleSignUp,
       handleSignIn,
