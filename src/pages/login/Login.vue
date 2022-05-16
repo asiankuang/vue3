@@ -67,29 +67,28 @@
 
 <script lang="ts">
 import { defineComponent, ref, reactive } from 'vue'
-// import { useClickChange } from '@/asserts/vueuse/index'
-type Item = {
-  value?: string
-  label?: string
-}
-type LangData = Item[]
+import { useClickChange } from '@/assets/vueuse/index'
+import { getLang } from './api'
+
 export default defineComponent({
   name: 'LoginPage',
   setup: () => {
-    // const {
-    //   handleFalse: handleSignUp,
-    //   handleTrue: handleSignIn,
-    //   bool: isSignIn,
-    // } = useClickChange(true)
-    const isSignIn = ref<boolean>(true)
+    const {
+      handleFalse: handleSignUp,
+      handleTrue: handleSignIn,
+      bool: isSignIn,
+    } = useClickChange(true)
     const langCode = ref<string>('zh')
-    const langData = reactive<LangData>([])
-    const handleSignUp = () => {
-      isSignIn.value = false
-    }
-    const handleSignIn = () => {
-      isSignIn.value = true
-    }
+    const langData = reactive<
+      {
+        value?: string
+        label?: string
+      }[]
+    >([])
+
+    getLang().then((res) => {
+      console.log(res)
+    })
 
     return {
       handleSignUp,

@@ -1,6 +1,6 @@
 import { ref } from 'vue'
 
-const useClickChange = (defaultValue: boolean) => {
+export const useClickChange = (defaultValue: boolean) => {
     const bool = ref<boolean>(defaultValue)
 
     const handleFalse = () => {

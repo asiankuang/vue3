@@ -38,7 +38,6 @@ interface Http {
   get<T>(url: string, params?: unknown): Promise<ResType<T>>
   post<T>(url: string, params?: unknown): Promise<ResType<T>>
   upload<T>(url: string, params: unknown): Promise<ResType<T>>
-  download(url: string): void
 }
 
 const http: Http = {
@@ -88,15 +87,6 @@ const http: Http = {
           reject(err.data)
         })
     })
-  },
-  download(url) {
-    const iframe = document.createElement('iframe')
-    iframe.style.display = 'none'
-    iframe.src = url
-    iframe.onload = function () {
-      document.body.removeChild(iframe)
-    }
-    document.body.appendChild(iframe)
   },
 }
 export default http
