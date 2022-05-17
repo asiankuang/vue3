@@ -1,16 +1,33 @@
 <template>
   <div class="login-box">
-    <div class="login-content">234</div>
+    <div class="login-content">
+      <el-checkbox v-model="value"></el-checkbox>
+      <span> {{ x }} , {{ y }} </span>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { useLocalStorage, useMouse, usePreferredDark, debounceFilter } from '@vueuse/core'
+import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
   name: 'LoginPage',
-  setup: () => {
-    return {}
+  setup() {
+    const value = ref<string>('')
+    // tracks mouse position
+    const { x, y } = useMouse({ eventFilter: debounceFilter(1000) })
+
+    // is user prefers dark theme
+    const isDark = usePreferredDark()
+
+    // persist state in localStorage
+    const store = useLocalStorage('my-storage', {
+      name: 'Apple',
+      color: 'red',
+    })
+
+    return { x, y, isDark, store, value }
   },
 })
 </script>
